@@ -16,6 +16,7 @@
 
 var TJBot = require('tjbot');
 var config = require('./config');
+var engine = require('./bot-engine');
 
 // obtain our credentials from config.js
 var credentials = config.credentials;
@@ -34,22 +35,14 @@ var tjConfig = {
 // instantiate our TJBot!
 var tj = new TJBot(hardware, tjConfig, credentials);
 
-console.log("You can ask me to introduce myself or tell you a joke.");
-console.log("Try saying, \"" + tj.configuration.robot.name + ", please introduce yourself\" or \"" + tj.configuration.robot.name + ", who are you?\"");
-console.log("You can also say, \"" + tj.configuration.robot.name + ", tell me a joke!\"");
+var currentScript = engine.loadScript('roteiro.json')
 
-// listen for utterances with our attentionWord and send the result to
-// the Conversation service
-tj.listen(function(msg) {
-    // check to see if they are talking to TJBot
-    if (msg.startsWith(tj.configuration.robot.name)) {
-        // remove our name from the message
-        var turn = msg.toLowerCase().replace(tj.configuration.robot.name.toLowerCase(), "");
-        
-        // send to the conversation service
-        tj.converse(WORKSPACEID, turn, function(response) {
-            // speak the result
-            tj.speak(response.description);
-        });
-    }
-});
+
+engine.evalAction(currentScript.actions[0], tj)
+
+setTimeout(engine.evalAction, 2000, currentScript.actions[1], tj)
+
+setTimeout(engine.evalAction, 000, currentScript.actions[1], tj)
+
+
+

@@ -1,0 +1,23 @@
+{
+  "title": "Nova estoria",
+  "version": "0.1",
+  "intro": {
+    "text": "TJBot Ã© muito legal"
+  },
+  "outro": {
+    "text": "Obrigado, tchau!"
+  },
+  "actions": [
+    {
+      "type": "question",
+      "output": "tts",
+      "text": "VocÃª gosta de sorvete?"
+    },
+    {
+      "type": "emotion",
+      "output": "some_processor",
+      "name": "celebration"
+    }
+  ],
+  "_id": "1BFfR1Tyz8U0MR8n"
+}
