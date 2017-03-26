@@ -29,16 +29,18 @@ var hardware = ['microphone', 'speaker'];
 
 // turn on debug logging to the console
 var tjConfig = {
-    verboseLogging: true
+    verboseLogging: true,
+    robot: {
+        name: 'Max',
+        gender: 'male'
+    }
 };
 
 // instantiate our TJBot!
 var tj = new TJBot(hardware, tjConfig, credentials);
 
-var currentScript = engine.loadScript('roteiro.json')
-
-
-engine.evalAction(currentScript.actions[0], tj)
+engine.loadScript('roteiro.json')
+engine.tellstory(tj);
 
 setTimeout(engine.evalAction, 2000, currentScript.actions[1], tj)
 

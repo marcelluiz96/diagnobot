@@ -2,21 +2,31 @@
   "title": "Nova estoria",
   "version": "0.1",
   "intro": {
-    "text": "TJBot Ã© muito legal"
+    "text": "Oi!"
   },
   "outro": {
-    "text": "Obrigado, tchau!"
+    "text": "Foi um prazer conversar contigo. Até mais!"
   },
   "actions": [
     {
       "type": "question",
       "output": "tts",
-      "text": "VocÃª gosta de sorvete?"
+      "text": "Tenho muitas histórias pra contar. Quer ouvir uma?"
     },
     {
-      "type": "emotion",
-      "output": "some_processor",
-      "name": "celebration"
+      "type": "story",
+      "output": "tts",
+      "text": "Era uma vez um rei muito rico chamado Pedro. Ele era bastante alto e forte. Todo dia antes de sair do quarto, colocava uma coroa dourada em sua..."
+    },
+    {
+      "type": "question",
+      "output": "tts",
+      "text": "desculpa, sempre esqueço a palavra. Você sabe o que os reis usam na cabeça?"
+    },
+    {
+      "type": "story",
+      "output": "tts",
+      "text": "Como eu ia dizendo, Breno e seu povo viviam no reino de [...]"
     }
   ],
   "_id": "1BFfR1Tyz8U0MR8n"
