@@ -1,5 +1,5 @@
     var jsonfile = require('jsonfile');
-    var WORKSPACEID = 'e9387686-75be-4011-b73d-1bfbc2af941f';
+    var WORKSPACEID = 'ac9cf97a-8ff7-437c-b3e2-15d7a774b2ff';
     var currentScript;
     var nextAction = 0;
     var tj;
@@ -14,10 +14,11 @@
 
     exports.tellStory = function(tjRef) {
 		tj = tjRef;
-        currentScript.actions.forEach(function(entry) {
-            //Evaluates the action
-            evalAction(entry);
-        });
+        
+            //Foi necessário para o MVP por dificuldades com laço em ambientes Async.
+            //Será convertido para outra linguagem utilizando as SDKs Python ou Java.
+            onQuestion(currentScript.actions[0]);
+
     }
 
     function evalAction (action) {
@@ -35,18 +36,39 @@
         }
     }
 
-    function onQuestion(entry) {        
-		tj.speak(entry.text);
-		tj.listen(function(msg) {
-			var answer = msg.toLowerCase();
-			tj.converse(WORKSPACEID, answer, function(response) {
-				tj.speak(response.description);
-			})
-		});
-    }
+    function onQuestion(entry) {    
+		
+		 return new Promise(function(resolve, reject) {  
+		tj.speak(entry.text)
+		.then(function() {
+			return listen()
 
+		})
+		.then(function(){
+			
+			})
+		.catch(function(error){
+			reject(error)
+		});
+		
+	});
+		
+    }
+    
+    function listen(msg){
+			 return new Promise(function(resolve, reject) {
+					tj.listen(function(msg) {
+				var answer = msg.toLowerCase();
+				tj.converse(WORKSPACEID, answer, function(response) {
+					tj.speak(response.description).then(function(result) {
+						resolve(result);
+						});
+				})
+			});
+		});
+		}
+      
     function onStory(entry) {
-		console.log(entry)
         if (entry.type == "story" && entry.output == "tts") {
                 tj.speak(entry.text);
         }

@@ -2,31 +2,31 @@
   "title": "Nova estoria",
   "version": "0.1",
   "intro": {
-    "text": "Oi!"
+    "text": "Hey!"
   },
   "outro": {
-    "text": "Foi um prazer conversar contigo. Até mais!"
+    "text": "It was nice talking to you. See you later!"
   },
   "actions": [
     {
       "type": "question",
       "output": "tts",
-      "text": "Tenho muitas histórias pra contar. Quer ouvir uma?"
+      "text": "I've got many stories to tell. Can i tell you a story?"
     },
     {
       "type": "story",
       "output": "tts",
-      "text": "Era uma vez um rei muito rico chamado Pedro. Ele era bastante alto e forte. Todo dia antes de sair do quarto, colocava uma coroa dourada em sua..."
+      "text": "In nowhereland, there was a very rich king named Peter. He was tall and strong! Everyday before his morning walks, he would put on a crown on his..."
     },
     {
       "type": "question",
       "output": "tts",
-      "text": "desculpa, sempre esqueço a palavra. Você sabe o que os reis usam na cabeça?"
+      "text": "Sorry. I'm so forgetful. Where do kings wear their crowns?"
     },
     {
       "type": "story",
       "output": "tts",
-      "text": "Como eu ia dizendo, Breno e seu povo viviam no reino de [...]"
+      "text": "As i was saying, king Peter [...]"
     }
   ],
   "_id": "1BFfR1Tyz8U0MR8n"
