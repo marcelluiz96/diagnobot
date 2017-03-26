@@ -1,3 +1,7 @@
+#Projeto relacionado 
+## visão web para cadastro de histórias
+https://github.com/hugoandregg/diagnobot
+
 # IBM TJBot
 <img src="images/tjbot.jpg" width="85%">
 
