@@ -40,11 +40,4 @@ var tjConfig = {
 var tj = new TJBot(hardware, tjConfig, credentials);
 
 engine.loadScript('roteiro.json')
-engine.tellstory(tj);
-
-setTimeout(engine.evalAction, 2000, currentScript.actions[1], tj)
-
-setTimeout(engine.evalAction, 000, currentScript.actions[1], tj)
-
-
-
+engine.tellStory(tj);

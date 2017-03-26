@@ -12,14 +12,15 @@
         currentScript = obj;
     }
 
-    exports.tellStory(tj) {
+    exports.tellStory = function(tjRef) {
+		tj = tjRef;
         currentScript.actions.forEach(function(entry) {
             //Evaluates the action
             evalAction(entry);
         });
     }
 
-    exports.evalAction = function(action) {
+    function evalAction (action) {
         switch(action.type) {
             case "question":
                 onQuestion(action)
@@ -34,20 +35,19 @@
         }
     }
 
-    function onQuestion(action) {
-        if (entry.type == "question" && entry.output == "tts") {
-                tj.speak(entry.text);
-                tj.listen(function(msg) {
-                    var answer = msg.toLowerCase();
-                    tj.converse(WORKSPACEID, answer, function(response) {
-                        tj.speak(response.description);
-                    })
-                });
-        }
+    function onQuestion(entry) {        
+		tj.speak(entry.text);
+		tj.listen(function(msg) {
+			var answer = msg.toLowerCase();
+			tj.converse(WORKSPACEID, answer, function(response) {
+				tj.speak(response.description);
+			})
+		});
     }
 
-    function onStory(action) {
-        if (entry.type == "story" && entry.output = "tts") {
+    function onStory(entry) {
+		console.log(entry)
+        if (entry.type == "story" && entry.output == "tts") {
                 tj.speak(entry.text);
         }
     }
